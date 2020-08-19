@@ -1,0 +1,331 @@
+/* ここから下に記載していく */
+body{
+    font-size: 16px;
+    color: #222222;
+    line-height: 200%;
+    font-family:"ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.wrap {
+    width: 1200px;
+    margin: auto;
+
+}
+
+header {
+    background-image: url(../img/header_logo.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    display: flex;
+    text-align: right;
+    margin-left: 50px;
+}
+
+header ul {
+    margin: 0 0 0 auto;
+    display: flex;
+    font-size: 21px;
+
+}
+
+header li {
+    margin: 50px 50px 50px 0;
+}
+
+header a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #222;
+  }
+
+ header a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #222;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform .3s;
+  }
+ 
+header a:hover::after {
+    transform: scale(1, 1);
+  }
+
+.mainvisual {
+    background-image: url(../img/mainbg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 200px;
+}
+
+h1{
+    font-size: 30px;
+    margin-top: 30px;
+    font-weight: normal;
+}
+
+h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom:30px;
+}
+
+h2.yellow{
+    color: #ffd61a;
+}
+
+.about{
+    padding: 60px 0 0;
+    text-align: center;
+
+}
+
+.sub-title{
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+
+.about-text {
+    margin-bottom: 80px;
+}
+
+
+p.about-p {
+    margin-bottom: 40px;
+}
+
+.about—img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -10px;
+    height: 200px;
+}
+
+.about img{
+    width: 25%;
+    
+}
+
+.course{
+    padding: 60px 0 0;
+    text-align: center;
+
+}
+
+.course-text p{
+    margin-bottom: 60px;
+}
+
+
+.course-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1200px;
+    margin: auto;
+    background: #fafafa;
+}
+
+.course-box img{
+    width: 600px;
+    max-width: 100%;
+}
+
+.course-caption{
+    width: 600px;
+    text-align: left;
+}
+
+
+h3{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+
+}
+
+.r{
+    width: 480px;
+    padding-left: 50px;
+}
+
+.l{
+    width: 430px;
+    margin:0 50px 0 auto;
+}
+
+.news{
+    padding: 60px 0;
+    text-align: center;
+}
+
+.news-outerbox{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+a.news-inbox{
+    width: 300px;
+    text-align: left;
+}
+
+.news-inbox:hover{
+    opacity: 0.5 ;
+}
+
+.news img{
+    vertical-align: top;
+}
+
+.news-day{
+    padding: 30px 0 24px;
+    color: #222222;
+
+}
+
+.news-text{
+    color: #222222;
+
+}
+
+
+.button{
+    margin: auto;
+    background: #ffd61a;
+    width: 300px;
+    padding: 21px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    display: block;
+    border: none;
+}
+
+.button:hover{
+    opacity: 0.5 ;
+}
+
+.access{
+    padding: 60px 0;
+    text-align: center;
+    background: #fafafa;
+}
+
+.access-outerbox{
+    padding-top: 60px;
+    justify-content: center;
+    width: 550px;
+    margin: auto;
+}
+
+.access-inbox{
+    display: flex;
+    justify-content: left;
+    line-height: 50px;
+}
+
+.access-left{
+    justify-content: left;
+    width: 150px;
+    text-align: left;
+
+}
+
+.access-right{
+    justify-content: left;
+}
+
+.contact{
+    margin: 60px 0 140px;
+    text-align: center;
+}
+
+.chuki{
+    margin: 30px 0 70px;
+
+}
+
+dl{
+    margin-bottom: 30px;
+}
+
+dl div{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.middle{
+    align-items: center;
+}
+
+.top{
+    padding-top: 8px;
+}
+
+dt{
+    width: 240px;
+    text-align: left;
+    line-height: normal;
+}
+
+dt label{
+    padding:0 64px 0 16px;
+    display: inline-block;
+}
+
+
+dd{
+    width: 400px;
+    margin: 8px;
+    text-align: left;
+}
+
+
+input.form{
+    width: 322px;
+    height: 32px;
+    border: #bfbfbf 1px solid;
+}
+
+select.form{
+    width: 328px;
+    height: 36px;
+    border: #bfbfbf 1px solid;
+}
+
+
+.checkbox{
+    padding: 0 0 24px;
+    justify-content: left;
+}
+
+.checkbox input{
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+}
+
+
+textarea{
+    width: 328px;
+    height: 100px;
+}
+
+footer{
+    padding: 30px;
+    background: #707070;
+    text-align: center;
+    color: white;
+}
