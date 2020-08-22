@@ -3,6 +3,7 @@ body{
     padding:0;
     text-align:left;
     font-size: 32px;
+    width: 100%;
 }
 header{
     background-color: #fff;
