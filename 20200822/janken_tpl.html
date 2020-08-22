@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width">
 <script src="js/jquery-2.1.3.min.js"></script>
 <link rel="stylesheet" href="css/sample.css">
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
 <title>じゃんけん</title>
 </head>
 <body>
@@ -21,17 +22,26 @@
 </header>
 
 <main>
-  <ul>
-    <li id="gu_btn"><img src="./img/janken_gu.png" width="100%" alt="ぐー"></li>
-    <li id="cho_btn"><img src="./img/janken_choki.png" width="100%" alt="ちょき"></li>
-    <li id="par_btn"><img src="./img/janken_pa.png" width="100%" alt="ちょき"></li>
-  </ul>
+
   <div>コンピュータの出した手は？</div>
   <div id="pc_hands">なに？</div>
   <div id="judgment">勝てるかな？</div>
 </main>
 
-<footer></footer>
+<footer>
+  <div id="footer-fixed">
+    <!-- <div id="footer-bk">
+           <div id="footer"> -->
+             <div id="footer-text">どれをだす？</div>
+            <ul>
+              <li id="gu_btn" class="janken"><img src="./img/janken_gu.png" alt="ぐー"></li>
+              <li id="cho_btn" class="janken"><img src="./img/janken_choki.png" alt="ちょき"></li>
+              <li id="par_btn" class="janken"><img src="./img/janken_pa.png" alt="ちょき"></li>
+            </ul>
+           <!-- </div>
+    </div> -->
+  </div>
+</footer>
 
 
 
@@ -85,7 +95,6 @@ $("#par_btn").on("click", function(){
   }
 });
 
-Splitting();
 </script>
 </body>
 </html>
