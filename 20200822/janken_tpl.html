@@ -37,7 +37,7 @@
 <div id="modal" class="late">  
   <div id="judgment"></div>
   <div>
-    <button id="reset" onclick="window.location.reload();">もう１回</button>
+    <button id="reset" onclick="window.location.reload();">もう１かい</button>
   </div>
 </div>
 <div id="overlay" class="late"></div>
@@ -98,7 +98,7 @@ $("#par_btn").on("click", function(){
   }
   if(num==3){
     $("#pc_hands").html('<img src="./img/janken_pa.png" alt="ぱー">');
-    $("#judgment").html('<img src="./img/bug_mark01_kabutomushi.png" class="result_img" alt="あいこ">');
+    $("#judgment").html();
     $("#title").html("ぽんっ！");
   }
 });
