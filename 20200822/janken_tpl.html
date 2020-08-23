@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width">
 <script src="js/jquery-2.1.3.min.js"></script>
 <link rel="stylesheet" href="css/sample.css">
+<link rel="stylesheet" href="css/reset.css">
 <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
 <title>じゃんけん</title>
 </head>
@@ -36,7 +37,7 @@
 <div id="modal" class="late">  
   <div id="judgment"></div>
   <div>
-    <button id="reset" onclick="window.location.reload();">もう１かい</button>
+    <button id="reset" onclick="window.location.reload();">もう１回</button>
   </div>
 </div>
 <div id="overlay" class="late"></div>
@@ -48,7 +49,7 @@ $("#gu_btn").on("click", function(){
   const num=Math.ceil(Math.random()*3)
   if(num==1){
     $("#pc_hands").html('<img src="./img/janken_gu.png" alt="ぐー">');
-    $("#judgment").html("あいこ");
+    $("#judgment").html('<img src="./img/bug_mark01_kabutomushi.png" class="result_img" alt="あいこ">');
     $("#title").html("ぽんっ！");
   }
   if(num==2){
@@ -73,7 +74,7 @@ $("#cho_btn").on("click", function(){
   }
   if(num==2){
     $("#pc_hands").html('<img src="./img/janken_choki.png" alt="ちょき">');
-    $("#judgment").html("あいこ");
+    $("#judgment").html('<img src="./img/bug_mark01_kabutomushi.png" class="result_img" alt="あいこ">');
     $("#title").html("ぽんっ！");
   }
   if(num==3){
@@ -97,7 +98,7 @@ $("#par_btn").on("click", function(){
   }
   if(num==3){
     $("#pc_hands").html('<img src="./img/janken_pa.png" alt="ぱー">');
-    $("#judgment").html("あいこ");
+    $("#judgment").html('<img src="./img/bug_mark01_kabutomushi.png" class="result_img" alt="あいこ">');
     $("#title").html("ぽんっ！");
   }
 });
