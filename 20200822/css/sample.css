@@ -99,7 +99,7 @@ li#par_btn {
     border-radius: 8px;
     background-color: #fff;
     font-size: 24px;
-    width: 80%;
+    /* width: 80%; */
     text-align: center;
 }
 .active {
@@ -123,6 +123,7 @@ button{
 
 .result_img{
     width: 90%;
+    margin-top: :10px;
 } 
 
 /* 遅延表示 */
