@@ -10,90 +10,134 @@
 </head>
 <body>
 
+<div id="wrapper">
 
-<header class="container">
-	<p class="bound">
-    <span>じ</span>
-    <span>ゃ</span>
-		<span>ん</span>
-		<span>け</span>
-		<span>ん</span>
-	</p>
-</header>
+  <div id="contents">
+    <h1 id="title">じゃんけん</h1> 
+    <div id="pc_hands">
+      <p><img src="./img/janken_gu.png" alt="ぐー"></p>
+      <p><img src="./img/janken_choki.png" alt="ちょき"></p>
+      <p><img src="./img/janken_pa.png" alt="ぱー"></p>
+    </div>
 
-<main>
-
-  <div>コンピュータの出した手は？</div>
-  <div id="pc_hands">なに？</div>
-  <div id="judgment">勝てるかな？</div>
-</main>
-
-<footer>
-  <div id="footer-fixed">
-    <!-- <div id="footer-bk">
-           <div id="footer"> -->
-             <div id="footer-text">どれをだす？</div>
-            <ul>
-              <li id="gu_btn" class="janken"><img src="./img/janken_gu.png" alt="ぐー"></li>
-              <li id="cho_btn" class="janken"><img src="./img/janken_choki.png" alt="ちょき"></li>
-              <li id="par_btn" class="janken"><img src="./img/janken_pa.png" alt="ちょき"></li>
-            </ul>
-           <!-- </div>
-    </div> -->
+    <div id="footer-fixed">
+      <div id="footer-text">どれをだす？</div>
+      <ul>
+        <li id="gu_btn" class="janken"><img src="./img/janken_gu.png" alt="ぐー"></li>
+        <li id="cho_btn" class="janken"><img src="./img/janken_choki.png" alt="ちょき"></li>
+        <li id="par_btn" class="janken"><img src="./img/janken_pa.png" alt="ぱー"></li>
+      </ul>
+    </div>
   </div>
-</footer>
+
+</div>
+
+<!-- モーダル -->
+<div id="modal" class="late">  
+  <div id="judgment"></div>
+  <div>
+    <button id="reset" onclick="window.location.reload();">もう１かい</button>
+  </div>
+</div>
+<div id="overlay" class="late"></div>
 
 
 
 <script>
-
 $("#gu_btn").on("click", function(){
   const num=Math.ceil(Math.random()*3)
   if(num==1){
-    $("#pc_hands").html("ぐー");
+    $("#pc_hands").html('<img src="./img/janken_gu.png" alt="ぐー">');
     $("#judgment").html("あいこ");
+    $("#title").html("ぽんっ！");
   }
   if(num==2){
-    $("#pc_hands").html("ちょき");
-    $("#judgment").html("かち");
+    $("#pc_hands").html('<img src="./img/janken_choki.png" alt="ちょき">');
+    $("#judgment").html('<img src="./img/pose_win_boy.png" class="result_img" alt="かち">');
+    $("#title").html("ぽんっ！");
   }
   if(num==3){
-    $("#pc_hands").html("ぱー");
-    $("#judgment").html("まけ");
+    $("#pc_hands").html('<img src="./img/janken_pa.png" alt="ぱー">');
+    $("#judgment").html('<img src="./img/pose_lose_boy.png" class="result_img" alt="まけ">');
+    $("#title").html("ぽんっ！");
   }
 });
+
 
 $("#cho_btn").on("click", function(){
   const num=Math.ceil(Math.random()*3)
   if(num==1){
-    $("#pc_hands").html("ぐー");
-    $("#judgment").html("まけ");
+    $("#pc_hands").html('<img src="./img/janken_gu.png" alt="ぐー">');
+    $("#judgment").html('<img src="./img/pose_lose_boy.png" class="result_img" alt="まけ">');
+    $("#title").html("ぽんっ！");
   }
   if(num==2){
-    $("#pc_hands").html("ちょき");
+    $("#pc_hands").html('<img src="./img/janken_choki.png" alt="ちょき">');
     $("#judgment").html("あいこ");
+    $("#title").html("ぽんっ！");
   }
   if(num==3){
-    $("#pc_hands").html("ぱー");
-    $("#judgment").html("かち");
+    $("#pc_hands").html('<img src="./img/janken_pa.png" alt="ぱー">');
+    $("#judgment").html('<img src="./img/pose_win_boy.png" class="result_img"  alt="かち">');
+    $("#title").html("ぽんっ！");
   }
 });
 
 $("#par_btn").on("click", function(){
   const num=Math.ceil(Math.random()*3)
   if(num==1){
-    $("#pc_hands").html("ぐー");
-    $("#judgment").html("かち");
+    $("#pc_hands").html('<img src="./img/janken_gu.png" alt="ぐー">');
+    $("#judgment").html('<img src="./img/pose_win_boy.png" class="result_img" alt="かち">');
+    $("#title").html("ぽんっ！");
   }
   if(num==2){
-    $("#pc_hands").html("ちょき");
-    $("#judgment").html("まけ");
+    $("#pc_hands").html('<img src="./img/janken_choki.png" alt="ちょき">');
+    $("#judgment").html('<img src="./img/pose_lose_boy.png" class="result_img" alt="まけ">');
+    $("#title").html("ぽんっ！");
   }
   if(num==3){
-    $("#pc_hands").html("ぱー");
+    $("#pc_hands").html('<img src="./img/janken_pa.png" alt="ぱー">');
     $("#judgment").html("あいこ");
+    $("#title").html("ぽんっ！");
   }
 });
+
+
+
+
+
+// パラパラ画像
+ (function($){ 
+	$.fn.parapara = function (o) {
+		return this.each(function(){
+			var o = $.extend({d:50}, o);
+			var c = $(this).children();
+			var a = 0;
+			var r = function(){c.hide(); c.eq(a % c.length).show(); ++a;}
+			r();
+			setInterval(r, o.d);
+		});
+	}
+})(jQuery);
+//onload
+$(function(){
+	$('#pc_hands').parapara();
+});
+
+// モーダル
+$(document).ready(function() {
+    $("#gu_btn,#cho_btn,#par_btn").on("click", function(e) {
+        e.preventDefault();
+        $("#overlay, #modal").addClass("active");
+        $("#reset, #overlay").on("click", function() {
+            $("#overlay, #modal").removeClass("active");
+            return false;        
+        });
+    });
+});
+
+
+
 
 </script>
 </body>
