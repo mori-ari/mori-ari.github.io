@@ -4,7 +4,7 @@ body{
     text-align:left;
     font-family: 'Kosugi Maru', sans-serif; 
     margin-right: auto;
-    margin-left : auto;
+    margin-left : auto;    
 }
 
 #wrapper{
@@ -17,10 +17,6 @@ body{
     margin: 50px 10px;
 }
 
-#pc_hands{
-    /* display: inline; */
-    /* width: 300px; */
-}
 
 /*フォント*/
 #title{
