@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+<title>じゃんけん</title>
+</head>
+<body>
+
+<div id="wrapper">
+
+  <div id="contents">
+    <h1 id="title">じゃんけん</h1> 
+    <div id="pc_hands">
+      <p><img src="./img/janken_gu.png" alt="ぐー"></p>
+      <p><img src="./img/janken_choki.png" alt="ちょき"></p>
+      <p><img src="./img/janken_pa.png" alt="ぱー"></p>
+    </div>
+  </div>  
+
+  <div id="footer-fixed">
+    <div id="footer-inbox">
+      <div id="footer-text">どれを出す？</div>
+      <ul>
+        <li id="gu_btn" class="janken"><img src="./img/janken_gu.png" alt="ぐー"></li>
+        <li id="cho_btn" class="janken"><img src="./img/janken_choki.png" alt="ちょき"></li>
+        <li id="par_btn" class="janken"><img src="./img/janken_pa.png" alt="ぱー"></li>
+      </ul>
+    <div>
+  </div>
+  
+
+</div>
+
+<!-- モーダル -->
+<div id="modal" class="late">  
+  <div id="judgment"></div>
+  <div>
+    <button id="reset" onclick="window.location.reload();">もう1回</button>
+  </div>
+</div>
+<div id="overlay" class="late"></div>
+
+
+
+<script>
+
+
+  $("#gu_btn").on("click", function(){
+  const num=Math.ceil(Math.random()*3)
+  if(num==1,2,3){
+    $("#pc_hands").html('<img src="./img/janken_choki.png" class="hands_img"  alt="ちょき">');
+    $("#judgment").html('<img src="./img/pose_win_boy.png" class="result_img" alt="かち">');
+  }
+  // if(num==2){
+  //   $("#pc_hands").html('<img src="./img/janken_pa.png" class="hands_img" alt="ぱー">');
+  //   $("#judgment").html('<img src="./img/pose_lose_boy.png" class="result_img" alt="まけ">');
+  // }
+  // if(num==3){
+  //   $("#pc_hands").html('<img src="./img/janken_gu.png" class="hands_img" alt="ぐー">');
+  //   $("#judgment").html('<img src="./img/220039966.jpg" class="result_img" alt="あいこ">');
+  //   $("#reset").text("aiko");
+  // }
+});
+
+
+$("#cho_btn").on("click", function(){
+  const num=Math.ceil(Math.random()*3)
+  // if(num==1){
+  //   $("#pc_hands").html('<img src="./img/janken_pa.png" class="hands_img"  alt="ぱー">');
+  //   $("#judgment").html('<img src="./img/pose_win_boy.png" class="result_img"  alt="かち">');
+  // }
+  if(num==1,2,3){
+    $("#pc_hands").html('<img src="./img/janken_gu.png" class="hands_img" alt="ぐー">');
+    $("#judgment").html('<img src="./img/pose_lose_boy.png" class="result_img" alt="まけ">');
+  }
+  // if(num==3){
+  //   $("#pc_hands").html('<img src="./img/janken_choki.png" class="hands_img"  alt="ちょき">');
+  //   $("#judgment").html('<img src="./img/220039966.jpg" class="result_img" alt="あいこ">');
+  //   $("#reset").text("aiko");
+  // }
+
+});
+
+$("#par_btn").on("click", function(){
+  const num=Math.ceil(Math.random()*3)
+  // if(num==1){
+  //   $("#pc_hands").html('<img src="./img/janken_gu.png" class="hands_img" alt="ぐー">');
+  //   $("#judgment").html('<img src="./img/pose_win_boy.png" class="result_img" alt="かち">');
+  // }
+  // if(num==2){
+  //   $("#pc_hands").html('<img src="./img/janken_choki.png" class="hands_img"  alt="ちょき">');
+  //   $("#judgment").html('<img src="./img/pose_lose_boy.png" class="result_img" alt="まけ">');
+  // }
+  if(num==1,2,3){
+    $("#pc_hands").html('<img src="./img/janken_pa.png" class="hands_img" alt="ぱー">');
+    $("#judgment").html('<img src="./img/220039966.jpg" class="result_img" alt="あいこ">');
+    $("#reset").text("aiko");
+  } 
+});
+
+$("#gu_btn,#cho_btn,#par_btn").on("click", function(){
+  const num=Math.ceil(Math.random()*3)
+  if(num>=1){
+    $("#title").html("ぽんっ！");
+  }
+});
+
+
+// パラパラ画像
+ (function($){ 
+	$.fn.parapara = function (o) {
+		return this.each(function(){
+			var o = $.extend({d:50}, o);
+			var c = $(this).children();
+			var a = 0;
+			var r = function(){c.hide(); c.eq(a % c.length).show(); ++a;}
+			r();
+			setInterval(r, o.d);
+		});
+	}
+})(jQuery);
+//onload
+$(function(){
+	$('#pc_hands').parapara();
+});
+
+
+// モーダル
+$(document).ready(function() {
+    $("#gu_btn,#cho_btn,#par_btn").on("click", function(e) {
+        e.preventDefault();
+        $("#overlay, #modal").addClass("active");
+        $("#reset, #overlay").on("click", function() {
+            $("#overlay, #modal").removeClass("active");
+            return false;        
+        });
+    });
+});
+
+
+
+
+
+</script>
+</body>
+</html>
