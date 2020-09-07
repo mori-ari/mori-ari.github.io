@@ -51,6 +51,7 @@
         </table>
     </div>
 
+
         
 
 
@@ -95,7 +96,11 @@ for(let i=0; i<localStorage.length; i++){
     // keyを区切る
     const y = key.substr( 0, 4 ) ;
     const m = key.substr( 5, 2 ) ;
-    
+    const d = key.substr( 8, 2 ) ;
+    const h = key.substr( 11, 2 ) ;
+    const min = key.substr( 14, 2 ) ;
+   
+    // 現在日時を数値に変換
     const nowDate = new Date();
     const dnum = nowDate.getTime();
 
