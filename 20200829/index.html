@@ -73,6 +73,8 @@ $("#submit").on("click",function(){
         //データをオブジェクト保存する
         const datalist = {value,value2}
         localStorage.setItem(key, JSON.stringify(datalist)); 
+        const html = '<tr id="tr_'+i+'"><td id="td_'+i+'"><span id="week_'+i+'"></span><br><span id="day_'+i+'"></span></td><td><span id="cate_'+i+'">'+cate+'</span><br>'+title+'</td><td><div id="delete_'+i+'" class="delete">削除</div></td></tr>'; 
+        $("#list").append(html);
     }
 });
 
