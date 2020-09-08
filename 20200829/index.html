@@ -17,7 +17,7 @@
     </div>
     <!-- 入力フォーム -->
     <form action="" method="post" id="form">
-        <div><input type="datetime-local" id="date" min="2020-09-01T00:00" max="2021-03-31T23:59" ></div>
+        <div><input type="datetime-local" id="date" value="2020-09-01T00:00"　min="2020-09-01T00:00" max="2021-03-31T23:59" ></div>
         <div>  
             <select name="cate" id="cate">
                 <option selected="selected" value="">カテゴリを選択</option>
@@ -67,8 +67,10 @@ $("#submit").on("click",function(){
     const value2 = $("#cate").val();  
     if(key==""){
         alert("日付を入力してください");            
+    }else if(value2==""){
+        alert("カテゴリを選択してください");
     }else if(value==""){
-        alert("内容を入力してください"); 
+        alert("内容を入力してください");  
     }else{
         //データをオブジェクト保存する
         const datalist = {value,value2}
