@@ -141,6 +141,14 @@ td{
 
 }
 
+#sort{
+    background: #fff;
+    color:#4488C5;
+    font-size: 12px;
+    padding:0px 2px;
+    border-radius: 4px;
+}
+
 #red{
     color:#EA2C00;
     font-weight: bold;
