@@ -20,7 +20,7 @@ body{
 
 #header_inbox{
     position:relative;
-    height: 96px;
+    height: 46px;
     display: flex;
 }
 
@@ -144,7 +144,7 @@ body{
     background-color: #fff;
     width: 100%;
     color: #000;
-    height: 94px;
+    height: 64px;
 
 }
 
