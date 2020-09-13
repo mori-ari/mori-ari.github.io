@@ -1,0 +1,207 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-family:"ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+    margin-right: auto;
+    margin-left : auto;
+    background: #7293C2;
+}
+
+
+#header{
+    position: fixed;
+    top:0px;
+    background-color: #202943;
+    width: 100%;
+    color: #ffffff;
+    /* height: 96px; */
+}
+
+#header_inbox{
+    position:relative;
+    height: 96px;
+    display: flex;
+}
+
+#allow{
+    margin: 4px;
+    font-size: 24px;
+    position:absolute;
+    padding: 4px;
+    bottom:0;
+}
+
+#room{
+    position:absolute;
+    bottom:0;
+    left:50px;
+    padding: 4px;
+    bottom:8px;
+    font-weight: bold;
+}
+
+#login{
+    padding: 4px;
+    background: #666;
+    border-radius: 20px;
+    position: absolute;
+    right:10px;
+    bottom:12px;
+    width:70px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#login:hover{
+    background: #ffffff;
+    color: #666;
+    /* opacity: 0.5 ; */
+}
+
+#timeline{
+    /* height: auto;
+    height: 100%; */
+    height: 660px;
+    padding-top:96px;
+    overflow:auto;
+}
+
+#date_area{
+    margin: 16px;
+    text-align: center;
+}
+
+#date{
+    color: #fff;
+    text-align: center;
+    border-radius: 30px;
+    background:rgba(0,0,0,0.1);
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+#icon{
+    width:  30px;
+    height: 30px; 
+    border-radius: 50%;  
+    background-position: center center;
+}
+
+#name{
+    font-size: 8px;
+    color: #fff;
+    margin: -6px 10px;
+    padding: 0;
+}
+
+#msg_box{
+    margin-left: 4px;
+    display: flex;
+
+}
+
+#msg_box_r,#msg_box_l{
+    display: flex;
+    bottom:0px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#msg_box_l{
+    flex-flow: row-reverse;
+}
+
+
+#time{
+    font-size: 8px;
+    color:#fff;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+
+#msg_g, #msg_w{
+    border-radius: 18px;
+    padding:8px;
+    font-size: 14px;
+    max-width: 250px;
+    right:0;
+    margin:10px;
+}
+
+#msg_w{
+    background: #fff;
+}
+
+#msg_g{
+    background: #72DE54;
+}
+
+
+#footer{
+    position: fixed;
+    bottom: 0px;
+    background-color: #fff;
+    width: 100%;
+    color: #000;
+    height: 94px;
+
+}
+
+#footer_inbox{
+    display: flex;
+    padding:10px;
+    align-items: center;
+}
+
+
+#text{
+    width: 100%;
+    padding-left: 16px;
+    margin-right: 40px;
+    border-radius: 20px;
+}
+
+input{
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ECECEC;
+    background: #F5F5F5;
+    width: 100%;
+}
+
+input:focus{
+    outline: 0;
+}
+
+#roll img{
+    height:26px;
+    filter: brightness(500%);
+}
+
+#send{
+    /* height:20px; */
+    /* position: absolute; */
+    /* right:10px;
+    top:16px; */
+    /* margin:0 0 0 auto; */
+    /* width: 34px; */
+    /* padding-left: 16px; */
+}
+
+#send img{
+    /* filter: brightness(300%); */
+    filter: brightness(50%) sepia(100) saturate(100) hue-rotate(210deg);
+    height:26px;
+}
+
+#send img:hover{
+    opacity: 0.5 ;
+
+}
+
+
+    
+
+
+
