@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-2.1.3.min.js"></script>
-    <title>LINE風アプリ</title>
+    <title>コジコジとおはなし</title>
 </head>
 <body>
     
@@ -14,14 +14,14 @@
 <div id="header">
     <div id="header_inbox">
         <div id="allow">く</div>
-        <div id="room">LINE風チャットアプリ</div>
+        <div id="room">コジコジとおはなし</div>
         <!-- <div id="login">ログイン</div> -->
     </div>
 </div>
 
 <!-- タイムライン -->
 <div id="timeline">
-    <div id="date_area"><span id="date">6/20(水)</span></div>
+    <!-- <div id="date_area"><span id="date">6/20(水)</span></div>
     <div id="msg_box_r">
         <div id="time">22:00</div>
         <div id="msg_g">吹き出し</div>
@@ -61,7 +61,7 @@
     <div id="msg_box_r">
         <div id="time">22:00</div>
         <div id="msg_g">吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し吹き出し</div>
-    </div>
+    </div> -->
 </div>
 
 <!-- フッター -->
@@ -107,8 +107,7 @@
 //   ここから
 // ---------------------------------------------
 
-// 同日なら日付表示しない
-// Googleログイン
+// Googleログインしたい
 // 1文字以上入力がないと送信ボタン押せないように
 // デフォルトで最後までスクロール
 
@@ -119,8 +118,22 @@ function send(){
     const text = $("#input").val();
 
     // ランダムな返答
-    const r = Math.floor(Math.random()*5)
-    const point = ["100点","60点","20点","0点","-50点"];
+    const r = Math.floor(Math.random()*13);
+    const point = [
+        "だれか　いそうな　けはいだね",
+        "えっ？　えっ？　わかんない　もいっかいいってよ　なんだって？",
+        "コジコジだけは　さいふをぬすまれなかったんだよ",
+        "いまね　ゲランがすごくいいものをくれるよ",
+        "なんで　なきそうなんだろ",
+        "きいてそんしたね",
+        "きっとよろこぶよ　ジョニーくん",
+        "うん、そのはなしは　きょういちにちで　さんかいもきいたよ",
+        "コジコジだよ　コジコジはうまれたときから　ずーっと　しょうらいも　コジコジはコジコジだよ",
+        "いま　おなかすいたでしょ　おおきいこえ　だしたから",
+        "えっ　わるいの？あそんでたべて　ねてちゃダメ？",
+        "そんなことより　さっきいってたミッキーマウスって　ともだちになりたいよ　しゃしんみせて",
+        "ねえねえ　ドーデスのおしろに　みんなでてを　ふろうよ　　おーいドーデスー"
+        ];
     const chat = point[r]
 
     //曜日配列
@@ -166,6 +179,7 @@ function scroll(){
 $("#send").on("click",function(){
     send();
     scroll();
+    
 });
 
 // Enterで文字を送信
@@ -189,24 +203,29 @@ ref.on("child_added", function(data){
     // 表示するHTML
     const date = '<div id="date_area"><span id="date">'+v.date+'</span></div>';
     const mine = '<div id="msg_box_r"><div id="time">'+v.time+'</div><div id="msg_g">'+v.text+'</div></div>';
-    const you ='<div id="msg_box"><div><img src="./img/icon.png" id="icon"></div><div id="msg_box_l"><div id="time">'+v.time+'</div><div id="msg_inbox"><div id="name">name</div><div id="msg_w">'+v.chat+'</div></div></div></div>'
+    const you ='<div id="msg_box"><div><img src="./img/eg9kmqmafr9unvusd2d5_400x400.jpeg" id="icon"></div><div id="msg_box_l"><div id="time">'+v.time+'</div><div id="msg_inbox"><div id="name">コジコジ</div><div id="msg_w">'+v.chat+'</div></div></div></div>'
     // if文でもし投稿日付が前の投稿とより多かったら日付を表示する
     // if文でもし投稿日付が前の投稿と一緒なら日付を表示しない
+    // if(){
+
+    // }
 
     $("#timeline").append(date);
-    $("#timeline").append(mine);
-    // 遅延で出るコメントのスクロールかわからないーーーーーーーー
-    setTimeout(function(){
-        $("#timeline").append(you);
-    }, 2000);
+
+    $("#timeline").append(mine,you);
+    // youを遅延表示させたいが、mineとyouを分けるとリロード後、交互の会話にならない。同じkeyで表示？ワカラナイ
+    // setTimeout(function(){
+    //     $("#timeline").append(you);
+    // }, 1500);
 });
+
+
 
 
 // クリックアラート
 $("#allow").on("click",function(){
     alert("何も起きません(;_;)");
 });
-
 
 $("#file").on("click",function(){
     alert("何も起きません(;_;)");

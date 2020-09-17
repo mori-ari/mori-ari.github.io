@@ -65,8 +65,9 @@ img:hover{
 #timeline{
     padding-top:46px;
     overflow:auto;
-    /* height: calc(100% - 100px); */
-    height: 790px;
+    display: block;
+    height: calc(100vh - 110px);
+    /* height: 790px; */
 }
 #date_area{
     margin: 16px;
@@ -207,7 +208,10 @@ input[type=file] {
 }
 
 
-
+#space{
+    display: block;
+    height: 64px;
+}
 
     
 
