@@ -10,14 +10,16 @@
 </head>
 <body>
     
+<!-- ヘッダー -->
 <div id="header">
     <div id="header_inbox">
         <div id="allow">く</div>
-        <div id="room">なまえ</div>
-        <div id="login">ログイン</a> </div>
+        <div id="room">LINE風チャットアプリ</div>
+        <!-- <div id="login">ログイン</div> -->
     </div>
 </div>
 
+<!-- タイムライン -->
 <div id="timeline">
     <div id="date_area"><span id="date">6/20(水)</span></div>
     <div id="msg_box_r">
@@ -62,10 +64,13 @@
     </div>
 </div>
 
-
+<!-- フッター -->
 <div id="footer">
     <div id="footer_inbox">
-        <div id="roll"><img src="./img/roll.png" alt=""></div>
+        <label>
+            <img src="./img/roll.png">
+            <input type="file" id="file">
+        </label>
         <div id="text"><input type="text" placeholder="メッセージを入力" id="input" autocomplete="off"></div>
         <div id="send"><img src="./img/send.png" alt=""></div>
     </div>
@@ -103,20 +108,26 @@
 // ---------------------------------------------
 
 // 同日なら日付表示しない
-// 自分以外の投稿はスタイルを変える
 // Googleログイン
 // 1文字以上入力がないと送信ボタン押せないように
-// 送信したらinput欄クリア
+// デフォルトで最後までスクロール
+
+
 
 // 関数定義
 function send(){
     const text = $("#input").val();
 
+    // ランダムな返答
+    const r = Math.floor(Math.random()*5)
+    const point = ["100点","60点","20点","0点","-50点"];
+    const chat = point[r]
+
     //曜日配列
     let week   = ["日", "月", "火", "水", "木", "金", "土"];
 
     //日時取得
-    let now = new Date();            //日付取得準備（必須）！！
+    let now = new Date();            //日付取得準備（必須）
     let month = now.getMonth() + 1;  //月+１を足す
     let day = now.getDate();        //日
     let w = now.getDay();          //曜日（数値）
@@ -132,51 +143,74 @@ function send(){
         text:text,
         date:date,
         time:time,
+        chat:chat
         // name:name,
-        // icon:icon
+        // icon:icon        
     }
+
     ref.push(msg);
 }
 
 
-
-
-// 文字を送信
-$("#send").on("click",function(){
-    send();
+// テキスト送信orエンターの挙動
+function scroll(){
     const lastElement = document.querySelector("#timeline").lastElementChild
     lastElement.scrollIntoView({behavior: "smooth"})
+    const input = document.getElementById("input");
+    input.value = '';
+}
+
+
+
+// クリックで文字を送信
+$("#send").on("click",function(){
+    send();
+    scroll();
 });
 
-  
+// Enterで文字を送信
+$("#text").on("keydown",function(e){
+    if(e.keyCode == 13){
+        send();
+        scroll();
+        // console.log(e)
+    }
+});
 
 
 // 受信処理
 ref.on("child_added", function(data){ 
     const v = data.val(); 
     const k = data.key;
+    console.log(v)
+
+
+
+    // 表示するHTML
     const date = '<div id="date_area"><span id="date">'+v.date+'</span></div>';
     const mine = '<div id="msg_box_r"><div id="time">'+v.time+'</div><div id="msg_g">'+v.text+'</div></div>';
-    const you ='<div id="msg_box"><div><img src="'+v.icon+'" id="icon"></div><div id="msg_box_l"><div id="time">'+v.time+'</div><div id="msg_inbox"><div id="name">'+v.name+'</div><div id="msg_w">'+v.text+'</div></div></div></div>'
+    const you ='<div id="msg_box"><div><img src="./img/icon.png" id="icon"></div><div id="msg_box_l"><div id="time">'+v.time+'</div><div id="msg_inbox"><div id="name">name</div><div id="msg_w">'+v.chat+'</div></div></div></div>'
     // if文でもし投稿日付が前の投稿とより多かったら日付を表示する
     // if文でもし投稿日付が前の投稿と一緒なら日付を表示しない
-    $("#timeline").append(date,mine);
-    // $("#timeline").append(date,you);
 
-});
-
-// イベント情報取得
-$("#text").on("keydown",function(e){
-    if(e.keyCode == 13){
-        send();
-    }
+    $("#timeline").append(date);
+    $("#timeline").append(mine);
+    // 遅延で出るコメントのスクロールかわからないーーーーーーーー
+    setTimeout(function(){
+        $("#timeline").append(you);
+    }, 2000);
 });
 
 
+// クリックアラート
+$("#allow").on("click",function(){
+    alert("何も起きません(;_;)");
+});
 
 
-
-
+$("#file").on("click",function(){
+    alert("何も起きません(;_;)");
+});
 
 
 

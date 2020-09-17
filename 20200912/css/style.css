@@ -8,6 +8,10 @@ body{
     background: #7293C2;
 }
 
+img:hover{
+    opacity: 0.5 ;
+}
+
 
 #header{
     position: fixed;
@@ -15,7 +19,6 @@ body{
     background-color: #202943;
     width: 100%;
     color: #ffffff;
-    /* height: 96px; */
 }
 
 #header_inbox{
@@ -60,13 +63,11 @@ body{
 }
 
 #timeline{
-    /* height: auto;
-    height: 100%; */
-    height: 660px;
-    padding-top:96px;
+    padding-top:46px;
     overflow:auto;
+    /* height: calc(100% - 100px); */
+    height: 790px;
 }
-
 #date_area{
     margin: 16px;
     text-align: center;
@@ -174,9 +175,20 @@ input:focus{
     outline: 0;
 }
 
-#roll img{
+
+label {
+    display: inline-block;
+  }
+  
+label img {
+    pointer-events: none;
     height:26px;
     filter: brightness(500%);
+  }
+
+  
+input[type=file] {
+    display: none;
 }
 
 #send{
@@ -190,15 +202,11 @@ input:focus{
 }
 
 #send img{
-    /* filter: brightness(300%); */
     filter: brightness(50%) sepia(100) saturate(100) hue-rotate(210deg);
     height:26px;
 }
 
-#send img:hover{
-    opacity: 0.5 ;
 
-}
 
 
     
