@@ -17,6 +17,8 @@
 
     <main>
       <form name="search">
+        <div class="text">タグを選択して検索</div>
+        
         <div class="search-box">
           <input
             type="radio"
@@ -257,7 +259,7 @@
                 $('input[name="tag"]').on("click", function tags() {
                   let tags = [];
                   tags.push($(this).val()); // 配列に値を追加
-                  $("#keyword").html(tags + "を検索");
+                  $("#keyword").html(tags + "で絞り込み");
 
                   const Name = goods[i].Item.itemName;
                   const Caption = goods[i].Item.itemCaption;

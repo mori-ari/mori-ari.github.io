@@ -21,7 +21,7 @@ a:hover {
 }
 
 form {
-  margin: 10px;
+  margin: 20px 20px 0px;
   max-width: 800px;
   display: inline-block;
   text-align: left;
@@ -80,10 +80,17 @@ table {
   margin: 0 auto;
 }
 
+.text{
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+}
+
 #keyword{
   display: inline-block;
   text-align: left;
-  margin-top:16px;
+  margin-top:20px;
 }
 
 #list{
