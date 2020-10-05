@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>カラコンショップ</title>
+  </head>
+  <body>
+    <!-- カラコン -->
+    <header id="main">
+      <img src="img/e_sale_531_6.png" width="100%" />
+    </header>
+
+    <main>
+      <form name="search">
+        <div class="search-box">
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag1"
+            value="ワンデー"
+          />
+          <label class="label" for="tag1">ワンデー</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag2"
+            value="2週間"
+          />
+          <label class="label" for="tag2">2週間</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag3"
+            value="1ヶ月"
+          />
+          <label class="label" for="tag3">1ヶ月</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag4"
+            value="度あり"
+          />
+          <label class="label" for="tag4">度あり</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag5"
+            value="度なし"
+          />
+          <label class="label" for="tag5">度なし</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag6"
+            value="ナチュラル"
+          />
+          <label class="label" for="tag6">ナチュラル</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag7"
+            value="コスプレ"
+          />
+          <label class="label" for="tag7">コスプレ</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag8"
+            value="ブラウン"
+          />
+          <label class="label" for="tag8">ブラウン</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag9"
+            value="ヘーゼル"
+          />
+          <label class="label" for="tag9">ヘーゼル</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag10"
+            value="ブラック"
+          />
+          <label class="label" for="tag10">ブラック</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag11"
+            value="グレー"
+          />
+          <label class="label" for="tag11">グレー</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag22"
+            value="安斉かれん"
+          />
+          <label class="label" for="tag22">安斉かれん</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag23"
+            value="北川景子"
+          />
+          <label class="label" for="tag23">北川景子</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag24"
+            value="小松菜々"
+          />
+          <label class="label" for="tag24">小松菜々</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag25"
+            value="森星"
+          />
+          <label class="label" for="tag25">森星</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag26"
+            value="ローラ"
+          />
+          <label class="label" for="tag26">ローラ</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag27"
+            value="益若つばさ"
+          />
+          <label class="label" for="tag27">益若つばさ</label>
+          <input
+            type="radio"
+            class="check_box"
+            name="tag"
+            id="tag28"
+            value="倖田來未"
+          />
+          <label class="label" for="tag28">倖田來未</label>
+        </div>
+        <div id="keyword"></div>
+      </form>
+
+      <ul id="list"></ul>
+    </main>
+
+    <script>
+      // ------------------
+      // グローバル変数
+      // ------------------
+      let APPID = "1027306534650996418"; //アプリID *必須
+      let AFF = "1d1234e2.3dc1e4f6.1d1234e3.4f94fc78";
+      let MAX_PAGE = 1; //最大取得ページ件数
+      let HITS = 30; //1ページ当たりの表示件数
+      let KEYWORD = encodeURIComponent("カラコン"); //絞り込みしたい単語
+      let SORT = encodeURIComponent("-reviewCount"); //レビュー降順
+
+      // ------------------
+      // 楽天API
+      // ------------------
+      $(function () {
+        function put_item(item) {
+          //ループで表示したいHTML部分を作成
+          $("#list").append(
+            `
+      <li id="item">
+        <dl>
+          <div id="img">
+            <dt>
+              <a href="${item.affiliateUrl}" target="_blank">
+                <img src="${item.mediumImageUrls[0].imageUrl.replace(
+                  "?_ex=128x128",
+                  ""
+                )}">
+              </a>
+              </dt>
+          </div> 
+        <div id="right">
+          <dd class="itemName"><a href="${item.affiliateUrl}" target="_blank">${
+              item.itemName
+            }</a></dd>
+          <dd class="itemPrice">
+            <a href="${item.affiliateUrl}" target="_blank">${
+              item.itemPrice
+            }<span>円(税込)</span>
+              <span class="point">ポイント${
+                item.pointRate
+              }倍</span>                
+              </a>                
+          </dd>
+          <div class="detail">
+            <dd class="accordion_header">商品詳細</dd>              
+            <div class="accordion_inner">
+              <div class="accordion_box">${item.itemCaption}</div>
+          </div> 
+        </dl>
+      </li>
+      `
+          );
+        }
+
+        //ajax
+        function search_rakuten(page) {
+          $.ajax({
+            url:
+              "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&applicationId=" +
+              APPID +
+              "&affiliateId=" +
+              AFF +
+              "&keyword=" +
+              KEYWORD +
+              "&sort=" +
+              SORT +
+              "&page=" +
+              page +
+              "&hits=" +
+              HITS,
+            type: "get",
+            dataType: "json",
+            timeout: 10000,
+            async: "true",
+          })
+            //読み込み成功時の処理
+            .done(function (data) {
+              // 1商品ずつhtml置く
+              goods = data.Items;
+
+              for (let i in goods) {
+                put_item(goods[i].Item);
+
+                // 検索母集団と絞り込みたいキーワード指定
+                $('input[name="tag"]').on("click", function tags() {
+                  let tags = [];
+                  tags.push($(this).val()); // 配列に値を追加
+                  $("#keyword").html(tags + "を検索");
+
+                  const Name = goods[i].Item.itemName;
+                  const Caption = goods[i].Item.itemCaption;
+                  const string = Name + Caption;
+
+                  console.log(string);
+
+                  if (string.indexOf(tags) > -1) {
+                    console.log("true");
+                    console.log(item[i]);
+                    $(item[i]).show();
+                  } else {
+                    console.log("false");
+                    console.log(item[i]);
+                    $(item[i]).hide();
+                  }
+                });
+              }
+
+              // アコーディオン
+              $(".accordion_header").on("click", function () {
+                $(this).next().slideToggle(); // クリックでコンテンツを開閉
+                $(this).toggleClass("open"); //矢印の向きを変更
+              });
+            })
+            //読み込み失敗時の処理
+            .fail(function (data) {
+              console.log("読み込みエラー");
+            });
+        }
+
+        search_rakuten(1);
+      });
+    </script>
+  </body>
+</html>
