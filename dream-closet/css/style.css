@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",
+    "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic",
+    "メイリオ", "Meiryo", sans-serif;
+  margin-right: auto;
+  margin-left: auto;
+  background: #fff;
+  font-size: 14px;
+  color: #856c59;
+}
+
+main {
+  margin: 3.4em 10px 0;
+}
+
+/* -----------------
+item
+----------------- */
+.cssgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 0.4em;
+  /* border: 1px solid #ddd; */
+  padding: 0.4em;
+  /* margin: 0 0 2em; */
+}
+
+.cssgrid > div {
+  /* overflow: auto; */
+  min-width: 0;
+  /* padding: 1em; */
+}
+
+.img {
+  width: 100%;
+  display: block;
+  border-radius: 0.4em;
+}
+
+h1 {
+  font-size: 18px;
+  padding: 16px;
+  text-align: center;
+}
+
+#main {
+  text-align: center;
+  margin: 0 auto;
+  width: 500px;
+  padding-top: 70px;
+}
+
+
+
+
+/* -----------------
+インクルード　ヘッダー
+----------------- */
+
+#header {
+  position: fixed;
+  top: 0px;
+  background-color: #e6d8c8;
+  width: 100%;
+  color: #856c59;
+}
+
+#header_inbox {
+  position: relative;
+  height: 46px;
+  display: flex;
+}
+
+#allow {
+  position: absolute;
+  bottom: 18px;
+  left: 14px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #856c59;
+  border-right: 2px solid #856c59;
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+#room {
+  position: absolute;
+  bottom: 12px;
+  left: 50px;
+  padding: 4px;
+  font-weight: bold;
+}
+
+#login {
+  background: #856c59;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #fff;
+  border: none;
+  text-align: center;
+  border-radius: 50px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 8px;
+  right: 10px;
+}
+
+/* -----------------
+インクルード　フッター
+----------------- */
+
+#footer {
+  top: 0px;
+  background-color: #e6d8c8;
+  width: 100%;
+  background-color: #b1aba5;
+  margin-top: 10px;
+}
+
+#copywrite {
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  padding: 6px;
+  /* margin-top: 20px; */
+}
